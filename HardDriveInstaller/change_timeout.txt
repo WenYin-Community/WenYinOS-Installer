@@ -1,0 +1,7 @@
+
+ ECHO [boot loader]>>c:\boot.ini.bak
+ ECHO timeout=10>>c:\boot.ini.bak
+ FOR /f "tokens=* delims=" %%i in ( findstr /i /v "timeout loader]" C:\boot.ini ) 
+   do (ECHO %%i>>c:\boot.ini.bak)
+ DEL /q /s /a /f c:\boot.ini&&
+ REN c:\boot.ini.bak boot.ini&&attrib +h +s +r c:\boot.inipause
